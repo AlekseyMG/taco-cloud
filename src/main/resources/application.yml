@@ -3,3 +3,5 @@ spring:
     name: taco-cloud
   thymeleaf:
     cache: false
+  datasource:
+    url: jdbc:h2:mem:testdb
