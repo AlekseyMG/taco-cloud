@@ -7,11 +7,19 @@
 
 <body>
 <h1>Welcome to...</h1>
-<img th:src="@{/images/TacoCloud.png}"/>
+<img th:src="@{/images/TacoCloud.png}" width="400"/>
+<form id="loginForm">
+<input type="button" onclick="location.href='/login';" value="Login"/>
+</form>
 <form method="POST" th:action="@{/logout}" id="logoutForm">
     <input type="submit" value="Logout"/>
 </form>
 
-<a th:href="@{/design}" id="design">Design a taco</a>
+<p>
+<form id="design">
+    <input type="button" onclick="location.href='/design';" value="Design a taco"/>
+</form>
+</p>
+<p>New here? Click <a th:href="@{/register}">here</a> to register.</p>
 </body>
 </html>

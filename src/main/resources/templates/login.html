@@ -13,15 +13,14 @@
   Unable to login. Check your username and password.
 </div>
 
-<p>New here? Click
-  <a th:href="@{/register}">here</a> to register.</p>
+<p>New here? Click <a th:href="@{/registeration}">here</a> to register.</p>
 
 <form method="POST" th:action="@{/login}" id="loginForm">
   <label for="username">Username: </label>
-  <input type="text" name="username" id="username" /><br/>
+  <input type="text" name="username"/><br/>
 
   <label for="password">Password: </label>
-  <input type="password" name="password" id="password" /><br/>
+  <input type="password" name="password"/><br/>
 
   <input type="submit" value="Login"/>
 </form>
