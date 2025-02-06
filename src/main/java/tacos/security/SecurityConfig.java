@@ -33,7 +33,11 @@ public class SecurityConfig {
 
         );
 
-        http.formLogin(Customizer.withDefaults());
+        http.formLogin(configurer ->
+                configurer.loginPage("/login").successForwardUrl("/design")
+        );
+
+        http.logout(configurer -> configurer.logoutSuccessUrl("/"));
 
         http.csrf(AbstractHttpConfigurer::disable);
 

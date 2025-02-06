@@ -7,13 +7,13 @@
 
 <body>
 <h1>Login</h1>
-<img th:src="@{/images/TacoCloud.png}"/>
+<img th:src="@{/images/TacoCloud.png}" width="400"/>
 
 <div th:if="${error}">
   Unable to login. Check your username and password.
 </div>
 
-<p>New here? Click <a th:href="@{/registeration}">here</a> to register.</p>
+<p>New here? Click <a th:href="@{/register}">here</a> to register.</p>
 
 <form method="POST" th:action="@{/login}" id="loginForm">
   <label for="username">Username: </label>
