@@ -23,7 +23,6 @@ public class UserRepositoryUserDetailsService implements UserDetailsService {
         User user = userRepo.findByUsername(username);
 
         if (user != null) {
-
             return user;
         }
 

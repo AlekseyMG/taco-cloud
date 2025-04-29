@@ -5,3 +5,6 @@ spring:
     cache: false
   datasource:
     url: jdbc:h2:mem:testdb;NON_KEYWORDS=user
+  data:
+    rest:
+      base-path: /api

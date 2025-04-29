@@ -34,7 +34,7 @@ public class SecurityConfig {
         );
 
         http.formLogin(configurer ->
-                configurer.loginPage("/login").successForwardUrl("/design")
+                configurer.loginPage("/login").defaultSuccessUrl("/design")
         );
 
         http.logout(configurer -> configurer.logoutSuccessUrl("/"));
