@@ -3,10 +3,10 @@ package tacos.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
@@ -29,8 +29,6 @@ public class SecurityConfig {
         http.authorizeHttpRequests(configurer ->
                 configurer.requestMatchers("/design", "/orders").hasRole("USER")
                         .requestMatchers("/", "/**").permitAll()
-                        //.anyRequest().authenticated()
-
         );
 
         http.formLogin(configurer ->
@@ -38,8 +36,9 @@ public class SecurityConfig {
         );
 
         http.logout(configurer -> configurer.logoutSuccessUrl("/"));
-
-        http.csrf(AbstractHttpConfigurer::disable);
+        http.csrf(AbstractHttpConfigurer::disable).headers(httpSecurityHeadersConfigurer -> {
+            httpSecurityHeadersConfigurer.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable);
+        });
 
         return http.build();
     }

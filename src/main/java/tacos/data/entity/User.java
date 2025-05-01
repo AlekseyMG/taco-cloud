@@ -1,4 +1,4 @@
-package tacos;
+package tacos.data.entity;
 import java.io.Serial;
 import java.util.Arrays;
 import java.util.Collection;

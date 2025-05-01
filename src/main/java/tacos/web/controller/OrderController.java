@@ -1,4 +1,4 @@
-package tacos.web;
+package tacos.web.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import tacos.Order;
-import tacos.User;
+import tacos.data.entity.Order;
+import tacos.data.entity.User;
 import tacos.data.OrderRepository;
 
 @Slf4j

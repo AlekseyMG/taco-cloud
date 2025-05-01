@@ -1,4 +1,4 @@
-package tacos.web.api;
+package tacos.web.api.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -13,8 +13,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import tacos.Taco;
+import tacos.data.entity.Taco;
 import tacos.data.TacoRepository;
+import tacos.web.api.TacoResource;
+import tacos.web.api.TacoResourceAssembler;
 
 @RepositoryRestController
 public class RecentTacosController {
@@ -25,14 +27,12 @@ public class RecentTacosController {
         this.tacoRepo = tacoRepo;
     }
 
-    @GetMapping(path="/tacos/recent", produces="application/hal+json")
+    @GetMapping(path = "/tacos/recent", produces = "application/hal+json")
     public ResponseEntity<CollectionModel<TacoResource>> recentTacos() {
         PageRequest page = PageRequest.of(
                 0, 12, Sort.by("createdAt").descending());
         List<Taco> tacos = tacoRepo.findAll(page).getContent();
 
-//        List<TacoResource> tacoResources =
-//                new TacoResourceAssembler().toCollectionModel(tacos).getContent().stream().toList();
         CollectionModel<TacoResource> recentResources =
                 new TacoResourceAssembler().toCollectionModel(tacos);
 

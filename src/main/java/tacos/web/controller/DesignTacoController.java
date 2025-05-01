@@ -1,4 +1,4 @@
-package tacos.web;
+package tacos.web.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -7,15 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import tacos.Ingredient;
-import tacos.Ingredient.Type;
-import tacos.Order;
-import tacos.Taco;
+import tacos.data.entity.Ingredient;
+import tacos.data.entity.Ingredient.Type;
+import tacos.data.entity.Order;
+import tacos.data.entity.Taco;
 import tacos.data.IngredientRepository;
 import tacos.data.TacoRepository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 

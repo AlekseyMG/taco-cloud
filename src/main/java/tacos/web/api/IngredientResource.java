@@ -3,8 +3,8 @@ package tacos.web.api;
 import org.springframework.hateoas.RepresentationModel;
 
 import lombok.Getter;
-import tacos.Ingredient;
-import tacos.Ingredient.Type;
+import tacos.data.entity.Ingredient;
+import tacos.data.entity.Ingredient.Type;
 
 public class IngredientResource extends RepresentationModel<IngredientResource> {
 
