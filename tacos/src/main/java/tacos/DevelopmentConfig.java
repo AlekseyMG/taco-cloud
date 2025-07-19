@@ -50,7 +50,7 @@ public class DevelopmentConfig {
 
                 userRepo.save(new User("qwerty", encoder.encode("123456"),
                         "Craig Walls", "123 North Street", "Cross Roads", "TX",
-                        "76227", "123-123-1234"));
+                        "76227", "123-123-1234", "test-email@gmail.com"));
 
                 Taco taco1 = new Taco();
                 taco1.setName("Carnivore");

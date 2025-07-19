@@ -1,7 +1,11 @@
 package tacos.data;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import tacos.data.entity.Order;
 
-public interface OrderRepository extends JpaRepository<Order, Long> {
+import java.util.Optional;
+
+public interface OrderRepository extends CrudRepository<Order, Long> {
+
+    Optional<Order> findById(Long Id);
 }
